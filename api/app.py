@@ -33,7 +33,7 @@ X_train_scaled = scaler.fit_transform(X_train)
 X_test_scaled = scaler.transform(X_test)
 
 # # Load the trained model
-model = joblib.load('california_house_price_model.pkl')
+model = joblib.load('./california_house_price_model.pkl')
 
 @app.route("/")
 def home():
@@ -66,3 +66,4 @@ def predict_price():
 
 if __name__ == '__main__':
     app.run(debug=False)
+
