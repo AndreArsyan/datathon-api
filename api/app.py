@@ -11,7 +11,6 @@ from sklearn.datasets import fetch_california_housing
 from sklearn.model_selection import train_test_split
 # from sklearn.linear_model import LinearRegression
 # import pickle
-import numpy as np
 
 from app2 import app2_api
 
