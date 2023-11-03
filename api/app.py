@@ -36,7 +36,7 @@ X_train_scaled = scaler.fit_transform([[1,2,3,4,5,6,7,8]])
 X_test_scaled = scaler.transform([[1,2,3,4,5,6,7,8]])
 
 # # Load the trained model
-model = joblib.load('./california_house_price_model.pkl')
+model = joblib.load('california_house_price_model.pkl')
 
 @app.route("/")
 def home():
