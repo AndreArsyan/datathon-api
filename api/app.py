@@ -6,7 +6,7 @@ from flask_cors import CORS, cross_origin
 from flask import jsonify
 
 # from sklearn.preprocessing import StandardScaler
-import joblib
+# import joblib
 # from sklearn.datasets import fetch_california_housing
 # from sklearn.model_selection import train_test_split
 # from sklearn.linear_model import LinearRegression
@@ -28,7 +28,7 @@ CORS(app)
 # X_test_scaled = scaler.transform(X_test)
 
 # Load the trained model
-model = joblib.load('california_house_price_model.pkl')
+# model = joblib.load('california_house_price_model.pkl')
 
 @app.route("/")
 def home():
