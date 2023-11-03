@@ -4,7 +4,7 @@ import csv
 
 with open('scrape-result.csv', 'w', encoding='UTF8') as f:
 
-  for i in range(2017,2023):
+  for i in range(2017,2024):
     for j in range(1,13):
       url = "https://dashboard-dinkes.jakarta.go.id/rsud/get_diagnosa_all"
 
