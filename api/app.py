@@ -1,15 +1,15 @@
 from flask import Flask
 from flask import request
-import requests
-import json
+# import requests
+# import json
 from flask_cors import CORS, cross_origin
 from flask import jsonify
 
-from sklearn.preprocessing import StandardScaler
+# from sklearn.preprocessing import StandardScaler
 import joblib
-from sklearn.datasets import fetch_california_housing
-from sklearn.model_selection import train_test_split
-from sklearn.linear_model import LinearRegression
+# from sklearn.datasets import fetch_california_housing
+# from sklearn.model_selection import train_test_split
+# from sklearn.linear_model import LinearRegression
 
 app = Flask(__name__)
 CORS(app)
@@ -55,7 +55,7 @@ def predict_price():
 
         # return jsonify(predicted_price)
 
-        return 0
+        return jsonify(0)
 
 if __name__ == '__main__':
     app.run(debug=False)
