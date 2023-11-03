@@ -45,16 +45,16 @@ model = joblib.load('california_house_price_model.pkl')
 
 @app.route('/', methods=['GET', 'POST'])
 def predict_price():
-    if request.method == 'POST':
+    if request.method == 'GET':
         # Get user inputs for the features
-        input_features = [float(request.form['MedInc']),
-                          float(request.form['HouseAge']),
-                          float(request.form['AveRooms']),
-                          float(request.form['AveBedrms']),
-                          float(request.form['Population']),
-                          float(request.form['AveOccup']),
-                          float(request.form['Latitude']),
-                          float(request.form['Longitude'])]
+        input_features = [float(request.args.get('MedInc')),
+                          float(request.args.get('HouseAge')),
+                          float(request.args.get('AveRooms')),
+                          float(request.args.get('AveBedrms')),
+                          float(request.args.get('Population')),
+                          float(request.args.get('AveOccup')),
+                          float(request.args.get('Latitude')),
+                          float(request.args.get('Longitude'))]
 
         # Scale the user inputs using the same scaler used during training
         scaled_features = scaler.transform([input_features])
@@ -62,9 +62,8 @@ def predict_price():
         # Make a prediction using the model
         predicted_price = model.predict(scaled_features)[0]
 
-        predict_price.json()
+        return jsonify(predicted_price)
 
-    return predict_price.json()
 
 if __name__ == '__main__':
     app.run(debug=False)
