@@ -8,7 +8,7 @@ with open('scrape-result.csv', 'w', encoding='UTF8') as f:
     for j in range(1,13):
       url = "https://dashboard-dinkes.jakarta.go.id/rsud/get_diagnosa_all"
 
-      payload = "filter_data=range&start_date=20"+str(i)+"-"+str(j)+"-01&end_date20"+str(i)+"-"+str(j)+"-31"
+      payload = "filter_data=range&start_date="+str(i)+"-"+str(j)+"-01&end_date="+str(i)+"-"+str(j)+"-31"
       headers = {
         'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8',
         'Pragma': 'no-cache',
@@ -32,4 +32,4 @@ with open('scrape-result.csv', 'w', encoding='UTF8') as f:
       response = requests.request("POST", url, headers=headers, data=payload)
       # write the data
       print(response.text)
-      f.write(response.text+"\n")
+      f.write(str(i)+"-"+str(j)+","+response.text+"\n")
