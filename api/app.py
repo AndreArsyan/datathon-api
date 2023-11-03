@@ -43,7 +43,11 @@ joblib.dump(model, 'california_house_price_model.pkl')
 # Load the trained model
 model = joblib.load('california_house_price_model.pkl')
 
-@app.route('/', methods=['GET', 'POST'])
+@app.route("/")
+def home():
+    return "HTTP 200 OK"
+
+@app.route('/api', methods=['GET', 'POST'])
 def predict_price():
     if request.method == 'GET':
         # Get user inputs for the features
