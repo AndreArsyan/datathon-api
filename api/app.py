@@ -27,19 +27,6 @@ scaler = StandardScaler()
 X_train_scaled = scaler.fit_transform(X_train)
 X_test_scaled = scaler.transform(X_test)
 
-# Train a linear regression model
-model = LinearRegression()
-model.fit(X_train_scaled, y_train)
-
-# Evaluate the model
-train_score = model.score(X_train_scaled, y_train)
-test_score = model.score(X_test_scaled, y_test)
-print(f"Train R2 score: {train_score:.2f}")
-print(f"Test R2 score: {test_score:.2f}")
-
-# Save the trained model to a file
-joblib.dump(model, 'california_house_price_model.pkl')
-
 # Load the trained model
 model = joblib.load('california_house_price_model.pkl')
 
