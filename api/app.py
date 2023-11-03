@@ -12,10 +12,10 @@ from sklearn.model_selection import train_test_split
 # from sklearn.linear_model import LinearRegression
 # import pickle
 
-from app2 import app2_api
+# from app2 import app2_api
 
 app = Flask(__name__)
-app.register_blueprint(app2_api)
+# app.register_blueprint(app2_api)
 CORS(app)
 #
 # Load the dataset
