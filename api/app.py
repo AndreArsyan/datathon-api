@@ -5,29 +5,31 @@ from flask import request
 from flask_cors import CORS, cross_origin
 from flask import jsonify
 
-from sklearn.preprocessing import StandardScaler
+# from sklearn.preprocessing import StandardScaler
 import joblib
-from sklearn.datasets import fetch_california_housing
-from sklearn.model_selection import train_test_split
+# from sklearn.datasets import fetch_california_housing
+# from sklearn.model_selection import train_test_split
 # from sklearn.linear_model import LinearRegression
+# import pickle
+import numpy as np
 
 app = Flask(__name__)
 CORS(app)
-
-# Load the dataset
-california = fetch_california_housing()
-X = california.data
-y = california.target
 #
-# # Split the data into training and testing sets
-X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
+# # Load the dataset
+# california = fetch_california_housing()
+# X = california.data
+# y = california.target
+# #
+# # # Split the data into training and testing sets
+# X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
+# #
+# # # Standardize the features
+# scaler = StandardScaler()
+# X_train_scaled = scaler.fit_transform(X_train)
+# X_test_scaled = scaler.transform(X_test)
 #
-# # Standardize the features
-scaler = StandardScaler()
-X_train_scaled = scaler.fit_transform(X_train)
-X_test_scaled = scaler.transform(X_test)
-
-# Load the trained model
+# # Load the trained model
 model = joblib.load('california_house_price_model.pkl')
 
 @app.route("/")
@@ -48,14 +50,17 @@ def predict_price():
                           float(request.args.get('Longitude'))]
 
         # Scale the user inputs using the same scaler used during training
-        scaled_features = scaler.transform([input_features])
+        # scaled_features = scaler.transform([input_features])
 
         # Make a prediction using the model
-        predicted_price = model.predict(scaled_features)[0]
+        predicted_price = model.predict([np.array(input_features)])[0]
+        # predicted_price = model.predict(scaled_features)[0]
+
 
         return jsonify(predicted_price)
 
         # return jsonify(0)
+
 
 if __name__ == '__main__':
     app.run(debug=False)
