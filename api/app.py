@@ -39,7 +39,23 @@ def predict_price():
     # Make a prediction using the model
     predicted_price = model.predict(scaled_features)[0]
 
-    return jsonify(predicted_price)
+    data = [
+        {
+            "nama_kec":"pancoran",
+            "total_pasien":2000,
+            "total_bed":200,
+            "hexcode":"#FFF"
+        },
+        {
+            "nama_kec": "pengadegan",
+            "total_pasien": 500,
+            "total_bed": 100,
+            "hexcode": "#DDD"
+        }
+    ]
+
+    # return jsonify(predicted_price)
+    return jsonify(data)
 
 
 if __name__ == '__main__':
