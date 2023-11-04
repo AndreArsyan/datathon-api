@@ -1,0 +1,6 @@
+Data Sources:
+1. Jakarta Historical Pollution: https://dataverse.harvard.edu/dataset.xhtml?persistentId=doi:10.7910/DVN/BDVUIB
+2. In-Patient Monthly Data: https://dashboard-dinkes.jakarta.go.id
+3. Healthcare Facility Data: data.jakarta.go.id + data source Andre
+4. Paramedics Data: data.jakarta.go.id
+5. Jakarta Population: data.jakarta.go.id
