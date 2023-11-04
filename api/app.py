@@ -24,20 +24,20 @@ def home():
 @app.route('/api', methods=['GET'])
 def predict_price():
     # Get user inputs for the features
-    input_features = [float(request.args.get('MedInc')),
-                      float(request.args.get('HouseAge')),
-                      float(request.args.get('AveRooms')),
-                      float(request.args.get('AveBedrms')),
-                      float(request.args.get('Population')),
-                      float(request.args.get('AveOccup')),
-                      float(request.args.get('Latitude')),
-                      float(request.args.get('Longitude'))]
+    # input_features = [float(request.args.get('MedInc')),
+    #                   float(request.args.get('HouseAge')),
+    #                   float(request.args.get('AveRooms')),
+    #                   float(request.args.get('AveBedrms')),
+    #                   float(request.args.get('Population')),
+    #                   float(request.args.get('AveOccup')),
+    #                   float(request.args.get('Latitude')),
+    #                   float(request.args.get('Longitude'))]
 
     # Scale the user inputs using the same scaler used during training
-    scaled_features = scaler.transform([input_features])
+    # scaled_features = scaler.transform([input_features])
 
     # Make a prediction using the model
-    predicted_price = model.predict(scaled_features)[0]
+    # predicted_price = model.predict(scaled_features)[0]
 
     data = [
         {
