@@ -1,6 +1,4 @@
 import requests
-import csv
-
 
 with open('scrape-result.csv', 'w', encoding='UTF8') as f:
 
