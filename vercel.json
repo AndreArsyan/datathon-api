@@ -30,7 +30,7 @@
   ],
   "functions": {
     "api/app.py": {
-      "memory": 3008,
+      "memory": 5008,
       "maxDuration": 60,
       "excludeFiles": "{.next,*.cache,node_modules,public,app}/**"
     }
