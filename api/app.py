@@ -33,7 +33,7 @@ app = Flask(__name__)
 CORS(app)
 
 # # Load the trained model
-model = joblib.load('xgboost.pkl')
+model = joblib.load('random_forest_model.pkl')
 
 @app.route("/")
 def home():
